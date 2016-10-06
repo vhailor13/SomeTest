@@ -20,6 +20,7 @@
 		57A7FACC1DA69F2200ED898A /* photos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57A7FACA1DA69F2200ED898A /* photos.xcdatamodeld */; };
 		57A7FACF1DA6A83500ED898A /* PhotoRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7FACD1DA6A83500ED898A /* PhotoRecord+CoreDataClass.swift */; };
 		57A7FAD01DA6A83500ED898A /* PhotoRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7FACE1DA6A83500ED898A /* PhotoRecord+CoreDataProperties.swift */; };
+		57A7FAD21DA6A8F000ED898A /* PhotoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7FAD11DA6A8F000ED898A /* PhotoLoader.swift */; };
 		B20E9F2F3E9B38C2824B2454 /* Pods_TestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EF4B9D6B127EC351F1334A /* Pods_TestTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		57A7FACB1DA69F2200ED898A /* photos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = photos.xcdatamodel; sourceTree = "<group>"; };
 		57A7FACD1DA6A83500ED898A /* PhotoRecord+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PhotoRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		57A7FACE1DA6A83500ED898A /* PhotoRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PhotoRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		57A7FAD11DA6A8F000ED898A /* PhotoLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLoader.swift; sourceTree = "<group>"; };
 		E551C45BEA38AE29CE4151C1 /* Pods-TestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestTask/Pods-TestTask.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				57A7FAA11DA4E5B600ED898A /* Photo.swift */,
+				57A7FAD11DA6A8F000ED898A /* PhotoLoader.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				57A7FACC1DA69F2200ED898A /* photos.xcdatamodeld in Sources */,
 				57A7FAB91DA645E000ED898A /* AlertsUtils.swift in Sources */,
 				57A7FABC1DA65D7700ED898A /* db.swift in Sources */,
+				57A7FAD21DA6A8F000ED898A /* PhotoLoader.swift in Sources */,
 				57A7FAA21DA4E5B600ED898A /* Photo.swift in Sources */,
 				57A7FA991DA4D79A00ED898A /* ViewController.swift in Sources */,
 				57A7FAD01DA6A83500ED898A /* PhotoRecord+CoreDataProperties.swift in Sources */,

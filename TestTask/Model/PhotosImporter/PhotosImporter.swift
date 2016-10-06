@@ -64,12 +64,10 @@ class PhotosImporter {
     }
     
     private class func photoFrom(asset: PHAsset) -> Photo? {
-        
         guard let creationDate = asset.creationDate else {
             return .None
         }
-        
-        
+
         return Photo(creationDate: creationDate, id: asset.localIdentifier)
     }
 }
