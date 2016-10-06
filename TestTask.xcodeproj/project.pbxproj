@@ -16,6 +16,8 @@
 		57A7FA9F1DA4E2A300ED898A /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A7FA9E1DA4E2A300ED898A /* Photos.framework */; };
 		57A7FAA21DA4E5B600ED898A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7FAA11DA4E5B600ED898A /* Photo.swift */; };
 		57A7FAB91DA645E000ED898A /* AlertsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7FAB81DA645E000ED898A /* AlertsUtils.swift */; };
+		57A7FABC1DA65D7700ED898A /* db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7FABB1DA65D7700ED898A /* db.swift */; };
+		57A7FAC91DA678D800ED898A /* PhotoRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7FAC81DA678D800ED898A /* PhotoRecord.swift */; };
 		B20E9F2F3E9B38C2824B2454 /* Pods_TestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EF4B9D6B127EC351F1334A /* Pods_TestTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,8 @@
 		57A7FA9E1DA4E2A300ED898A /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		57A7FAA11DA4E5B600ED898A /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		57A7FAB81DA645E000ED898A /* AlertsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsUtils.swift; sourceTree = "<group>"; };
+		57A7FABB1DA65D7700ED898A /* db.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = db.swift; sourceTree = "<group>"; };
+		57A7FAC81DA678D800ED898A /* PhotoRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoRecord.swift; sourceTree = "<group>"; };
 		E551C45BEA38AE29CE4151C1 /* Pods-TestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestTask/Pods-TestTask.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +107,7 @@
 		57A7FA9A1DA4E14500ED898A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				57A7FABA1DA65D6200ED898A /* DB */,
 				57A7FAA01DA4E5A400ED898A /* Photos */,
 				57A7FA9B1DA4E14500ED898A /* PhotosImporter */,
 			);
@@ -131,6 +136,15 @@
 				57A7FAB81DA645E000ED898A /* AlertsUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		57A7FABA1DA65D6200ED898A /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				57A7FABB1DA65D7700ED898A /* db.swift */,
+				57A7FAC81DA678D800ED898A /* PhotoRecord.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 		9BCC7542E049B2CFAD41CBDC /* Frameworks */ = {
@@ -186,7 +200,6 @@
 				TargetAttributes = {
 					5763A0B31DA4D68A00EB6D5D = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = FZXCM5CJ7P;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -277,10 +290,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				57A7FAB91DA645E000ED898A /* AlertsUtils.swift in Sources */,
+				57A7FABC1DA65D7700ED898A /* db.swift in Sources */,
 				57A7FAA21DA4E5B600ED898A /* Photo.swift in Sources */,
 				57A7FA991DA4D79A00ED898A /* ViewController.swift in Sources */,
 				57A7FA941DA4D79A00ED898A /* AppDelegate.swift in Sources */,
 				57A7FA9D1DA4E15700ED898A /* PhotosImporter.swift in Sources */,
+				57A7FAC91DA678D800ED898A /* PhotoRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +423,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = FZXCM5CJ7P;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TestTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.exyte.TestTask;
@@ -426,7 +441,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = FZXCM5CJ7P;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TestTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.exyte.TestTask;

@@ -65,14 +65,15 @@ class PhotosImporter {
     
     private class func photoFrom(asset: PHAsset) -> Photo? {
         
-        let promise = Promise<Photo, NSError>()
         guard let creationDate = asset.creationDate else {
             return .None
         }
         
         let manager = PHImageManager.defaultManager()
         var photo: Photo?
-        manager.requestImageForAsset(asset, targetSize: CGSizeMake(1024, 768), contentMode: .AspectFill, options: .None) { image, info in
+        manager.requestImageForAsset(asset,
+                                     targetSize: CGSizeMake(CGFloat(asset.pixelWidth), CGFloat(asset.pixelHeight)),
+                                     contentMode: .AspectFill, options: .None) { image, info in
             guard let photoImage = image else {
                 return
             }
