@@ -69,19 +69,7 @@ class PhotosImporter {
             return .None
         }
         
-        let manager = PHImageManager.defaultManager()
-        var photo: Photo?
-        manager.requestImageForAsset(asset,
-                                     targetSize: CGSizeMake(CGFloat(asset.pixelWidth), CGFloat(asset.pixelHeight)),
-                                     contentMode: .AspectFill, options: .None) { image, info in
-            guard let photoImage = image else {
-                return
-            }
-            
-            photo = Photo(creationDate: creationDate, image: photoImage)
-            
-        }
         
-        return photo
+        return Photo(creationDate: creationDate, id: asset.localIdentifier)
     }
 }

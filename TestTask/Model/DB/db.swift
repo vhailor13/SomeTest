@@ -8,7 +8,7 @@ class DB {
     
     init () {
         MagicalRecord.enableShorthandMethods()
-        MagicalRecord.setupAutoMigratingCoreDataStack()
+        MagicalRecord.setupCoreDataStackWithStoreNamed("photos")
         
         let mainContext = NSManagedObjectContext.MR_defaultContext()
         privateContext = NSManagedObjectContext.MR_newPrivateQueueContext()
@@ -24,9 +24,10 @@ class DB {
         MagicalRecord.saveWithBlock { localContext in
             let localPhoto = PhotoRecord.MR_createEntityInContext(localContext)
             localPhoto?.creationDate = photo.creationDate
-            localPhoto?.imageData = UIImagePNGRepresentation(photo.image)
+            localPhoto?.photoId = photo.id
             promise.success()
         }
+        
         
         return promise.future
     }
@@ -57,15 +58,11 @@ class DB {
             return .None
         }
         
-        guard let imageData = record.imageData else {
+        guard let photoId = record.photoId else {
             return .None
         }
         
-        guard let image =  UIImage(data:imageData) else {
-            return .None
-        }
-        
-        return Photo(creationDate: creationDate, image: image)
+        return Photo(creationDate: creationDate, id: photoId as String)
     }
     
     
