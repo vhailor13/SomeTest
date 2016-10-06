@@ -8,7 +8,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         PhotosImporter.importPhotos().onSuccess { photos in
-            print("Number of photos: \(photos.count)")
+            print("First photo: \(photos.first!.image)")
         }
     }
 }
