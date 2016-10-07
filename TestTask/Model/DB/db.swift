@@ -34,6 +34,25 @@ class DB {
         return promise.future
     }
     
+    func save(photos: [Photo]) -> Future<Void, NSError> {
+        let promise = Promise<Void, NSError>()
+        MagicalRecord.saveWithBlock ({ localContext in
+            photos.forEach { photo in
+                let localPhoto = PhotoRecord.MR_createEntityInContext(localContext)
+                localPhoto?.creationDate = photo.creationDate
+                localPhoto?.photoId = photo.id
+                localPhoto?.thumbImageData = UIImagePNGRepresentation(photo.thumbImage)
+            }
+        }) { finished, error in
+            
+            NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+            promise.success()
+        }
+        
+        return promise.future
+    }
+    
+    
     func fetchPhotos() -> Future<[Photo], NSError> {
         let promise = Promise<[Photo], NSError>()
         

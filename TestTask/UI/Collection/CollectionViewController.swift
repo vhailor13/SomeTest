@@ -5,6 +5,7 @@ import BrightFutures
 class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView?
+    @IBOutlet weak var activityView: UIView?
     
     var photos = [Photo]()
     var selectedIndex = 0
@@ -19,13 +20,18 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func reloaCollection() {
-        db.fetchPhotos().onSuccess { photos in
-            self.photos.removeAll()
-            self.photos.appendContentsOf(photos.sort({
-                $0.creationDate.compare($1.creationDate) == NSComparisonResult.OrderedAscending
-            }))
-            
-            self.collectionView?.reloadData()
+        dispatch_async(dispatch_get_main_queue()) {
+            db.fetchPhotos().onSuccess { photos in
+                
+                self.activityView?.hidden = photos.count > 0
+                
+                self.photos.removeAll()
+                self.photos.appendContentsOf(photos.sort({
+                    $0.creationDate.compare($1.creationDate) == NSComparisonResult.OrderedAscending
+                }))
+                
+                self.collectionView?.reloadData()
+            }   
         }
     }
     

@@ -69,7 +69,7 @@ class PhotosPageController: UIPageViewController, UIPageViewControllerDataSource
         if let ctrl = pageViewController.viewControllers?.first as? PhotoViewerController {
             if let index = viewerControllers.indexOf(ctrl) {
                 if index == viewerControllers.count - 1 {
-                    self.dismissViewControllerAnimated(true, completion: .None)
+                    self.navigationController?.popViewControllerAnimated(true)
                     return
                 }
             }

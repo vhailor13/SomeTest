@@ -20,9 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         PhotosImporter.importPhotos().onSuccess { photos in
-            photos.traverse { photo in
-                db.save(photo: photo)
-                }.onSuccess { _ in
+
+            db.save(photos).onSuccess { _ in
                     userDefaults.setBool(true, forKey: isPhotosImporterdKey)
                     userDefaults.synchronize()
                     

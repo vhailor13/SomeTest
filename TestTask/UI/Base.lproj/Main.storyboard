@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="C96-K9-A5d">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Collection View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="5jT-nu-Aog">
+            <objects>
+                <navigationController id="C96-K9-A5d" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bLa-ZD-h4L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UlL-wo-8jy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="prE-da-U1S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-692" y="87"/>
+        </scene>
+        <!--Photos-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CollectionViewController" customModule="TestTask" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Photos" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="CollectionViewController" customModule="TestTask" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -34,7 +50,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPz-v6-Poz">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPz-v6-Poz">
                                                     <frame key="frameInset" minX="-70" minY="-14" width="240" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -50,27 +66,32 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="grm-tK-zer"/>
                                 </connections>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lm3-cE-o2T">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7c-Yi-G61">
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Zhq-nT-K6p"/>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.24811613475177305" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="9z0-RT-oHM"/>
+                                    <constraint firstItem="Zhq-nT-K6p" firstAttribute="centerX" secondItem="l7c-Yi-G61" secondAttribute="centerX" id="Db7-mE-VML"/>
+                                    <constraint firstItem="Zhq-nT-K6p" firstAttribute="centerY" secondItem="l7c-Yi-G61" secondAttribute="centerY" id="HAl-Go-MpI"/>
                                 </constraints>
-                                <items>
-                                    <navigationItem title="Photos" id="QXu-OL-Zzs"/>
-                                </items>
-                            </navigationBar>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="tG4-Oq-bjO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4jL-JX-AdO"/>
                             <constraint firstItem="tG4-Oq-bjO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="A5L-0C-kBP"/>
-                            <constraint firstItem="tG4-Oq-bjO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="Neb-k4-ksa"/>
-                            <constraint firstItem="lm3-cE-o2T" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Tbk-My-ttT"/>
+                            <constraint firstItem="l7c-Yi-G61" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ctc-Oy-yXp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="l7c-Yi-G61" secondAttribute="bottom" id="Ncj-M7-jnf"/>
                             <constraint firstAttribute="trailing" secondItem="tG4-Oq-bjO" secondAttribute="trailing" id="WpM-Qj-YzF"/>
-                            <constraint firstAttribute="trailing" secondItem="lm3-cE-o2T" secondAttribute="trailing" id="aAn-kW-iHX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tG4-Oq-bjO" secondAttribute="bottom" id="ixr-ad-A9I"/>
-                            <constraint firstItem="lm3-cE-o2T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oeo-d0-iQC"/>
+                            <constraint firstItem="l7c-Yi-G61" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nHG-5k-0gP"/>
+                            <constraint firstAttribute="trailing" secondItem="l7c-Yi-G61" secondAttribute="trailing" id="u5e-1b-ZW2"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Photos" id="X6Z-yo-Trb"/>
                     <connections>
+                        <outlet property="activityView" destination="l7c-Yi-G61" id="G2d-ih-3vx"/>
                         <outlet property="collectionView" destination="tG4-Oq-bjO" id="TVI-Ha-Mc5"/>
                         <segue destination="QH8-CY-ciX" kind="show" identifier="photos_page_segue" id="kVQ-JU-FlF"/>
                     </connections>
@@ -85,7 +106,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QH8-CY-ciX" customClass="PhotosPageController" customModule="TestTask" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fj0-Rb-aBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="87"/>
+            <point key="canvasLocation" x="778" y="87"/>
         </scene>
         <!--Photo Viewer Controller-->
         <scene sceneID="3Vx-Ny-awI">
@@ -101,7 +122,7 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZA-oC-MNf">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z0M-3a-2PQ"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z0M-3a-2PQ"/>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Z0M-3a-2PQ" secondAttribute="bottom" id="3IS-30-eOg"/>
@@ -130,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbY-dV-lby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1596" y="86.806596701649184"/>
+            <point key="canvasLocation" x="1505" y="87"/>
         </scene>
     </scenes>
 </document>

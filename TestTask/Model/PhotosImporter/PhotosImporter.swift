@@ -73,9 +73,18 @@ class PhotosImporter {
             
             var thumbImage: UIImage?
             let manager = PHImageManager.defaultManager()
+            
+            let height: CGFloat = 100.0
+            let width = height * CGFloat(asset.pixelWidth) / CGFloat(asset.pixelHeight)
+            
+            let options = PHImageRequestOptions()
+            options.deliveryMode = .FastFormat
+            options.resizeMode = .Fast
+            options.synchronous = true
+            
             manager.requestImageForAsset(asset,
-                                         targetSize: CGSizeMake(CGFloat(asset.pixelWidth), CGFloat(asset.pixelHeight)),
-                                         contentMode: .AspectFill, options: .None) { image, info in
+                                         targetSize: CGSizeMake(width, height),
+                                         contentMode: .AspectFill, options: options) { image, info in
                                             if let _ = thumbImage {
                                                 return
                                             }
