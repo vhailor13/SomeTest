@@ -41,7 +41,7 @@ class DB {
                 let localPhoto = PhotoRecord.MR_createEntityInContext(localContext)
                 localPhoto?.creationDate = photo.creationDate
                 localPhoto?.photoId = photo.id
-                localPhoto?.thumbImageData = UIImagePNGRepresentation(photo.thumbImage)
+                localPhoto?.thumbImageData =  UIImagePNGRepresentation(photo.thumbImage)
             }
         }) { finished, error in
             

@@ -76,6 +76,7 @@ class PhotosImporter {
             
             let height: CGFloat = 100.0
             let width = height * CGFloat(asset.pixelWidth) / CGFloat(asset.pixelHeight)
+            let imageSize = CGSizeMake(width, height)
             
             let options = PHImageRequestOptions()
             options.deliveryMode = .FastFormat
@@ -83,7 +84,7 @@ class PhotosImporter {
             options.synchronous = true
             
             manager.requestImageForAsset(asset,
-                                         targetSize: CGSizeMake(width, height),
+                                         targetSize: imageSize,
                                          contentMode: .AspectFill, options: options) { image, info in
                                             if let _ = thumbImage {
                                                 return
