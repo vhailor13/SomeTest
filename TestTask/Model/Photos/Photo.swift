@@ -2,6 +2,7 @@
 import Foundation
 
 struct Photo {
-    let creationDate: NSDate
     let id: String
+    let creationDate: NSDate
+    let thumbImage: UIImage
 }

@@ -9,14 +9,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        print("DB:")
+        print("\(NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!)")
+        
         db.fetchPhotos().onSuccess { photos in
-            print("DB:")
-            print("\(NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!)")
             print("Number of photos: \(photos.count)")
             if let photo = photos.first {
-                PhotoLoader.loadContent(photo){ image in
-                    self.photoView?.image = image
-                }
+                self.photoView?.image = photo.thumbImage
+//                PhotoLoader.loadContent(photo){ image in
+//                    self.photoView?.image = image
+//                }
             }
         }
     }

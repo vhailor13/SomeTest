@@ -13,10 +13,9 @@ class PhotosImporter {
     private class func importPhotosFromAssets() -> Future<[Photo], NSError> {
         
         return importPhotoAssets().flatMap { assets -> Future<[Photo], NSError> in
-            let photos = assets.flatMap({ photoFrom($0)})
-            let promise = Promise<[Photo], NSError>()
-            promise.success(photos)
-            return promise.future
+            return assets.traverse { asset in
+                photoFrom(asset)
+            }
         }
     }
     
@@ -63,11 +62,37 @@ class PhotosImporter {
         return promise.future
     }
     
-    private class func photoFrom(asset: PHAsset) -> Photo? {
-        guard let creationDate = asset.creationDate else {
-            return .None
+    private class func photoFrom(asset: PHAsset) -> Future<Photo, NSError> {
+        let promise = Promise<Photo, NSError>()
+        
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.rawValue), 0)) {
+            guard let creationDate = asset.creationDate else {
+                promise.failure(error(code: 0, message: "No creation date available"))
+                return
+            }
+            
+            var thumbImage: UIImage?
+            let manager = PHImageManager.defaultManager()
+            manager.requestImageForAsset(asset,
+                                         targetSize: CGSizeMake(CGFloat(asset.pixelWidth), CGFloat(asset.pixelHeight)),
+                                         contentMode: .AspectFill, options: .None) { image, info in
+                                            if let _ = thumbImage {
+                                                return
+                                            }
+                                            
+                                            guard let photoImage = image else {
+                                                return
+                                            }
+                                            
+                                            thumbImage = image
+                                            let photo = Photo(
+                                                id: asset.localIdentifier,
+                                                creationDate: creationDate,
+                                                thumbImage: photoImage)
+                                            promise.success(photo)
+            }
         }
-
-        return Photo(creationDate: creationDate, id: asset.localIdentifier)
+        
+        return promise.future
     }
 }

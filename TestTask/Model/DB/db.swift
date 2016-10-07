@@ -25,6 +25,8 @@ class DB {
             let localPhoto = PhotoRecord.MR_createEntityInContext(localContext)
             localPhoto?.creationDate = photo.creationDate
             localPhoto?.photoId = photo.id
+            localPhoto?.thumbImageData = UIImagePNGRepresentation(photo.thumbImage)
+            
             promise.success()
         }
         
@@ -62,7 +64,15 @@ class DB {
             return .None
         }
         
-        return Photo(creationDate: creationDate, id: photoId as String)
+        guard let imageData = record.thumbImageData else {
+            return .None
+        }
+        
+        guard let thumbImage = UIImage(data: imageData) else {
+            return .None
+        }
+        
+        return Photo(id: photoId, creationDate: creationDate, thumbImage: thumbImage)
     }
     
     

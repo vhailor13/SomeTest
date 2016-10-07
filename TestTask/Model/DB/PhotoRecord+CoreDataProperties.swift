@@ -1,4 +1,3 @@
-
 import Foundation
 import CoreData
 
@@ -11,5 +10,6 @@ extension PhotoRecord {
 
     @NSManaged public var creationDate: NSDate?
     @NSManaged public var photoId: String?
+    @NSManaged public var thumbImageData: NSData?
 
 }
