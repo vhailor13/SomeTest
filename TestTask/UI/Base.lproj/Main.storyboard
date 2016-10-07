@@ -3,14 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Collection View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestTask" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CollectionViewController" customModule="TestTask" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,24 +18,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="afT-9j-reg">
-                                <frame key="frameInset" minX="61" minY="290" width="240" height="128"/>
-                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tG4-Oq-bjO">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s8b-ld-6gp">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="25" minY="25" maxX="25" maxY="25"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collection_cell" id="AdJ-II-LJk" customClass="CollectionCell" customModule="TestTask" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="25" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPz-v6-Poz">
+                                                    <frame key="frameInset" minX="-70" minY="-14" width="240" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="imageView" destination="SPz-v6-Poz" id="q21-Qy-COB"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="wUN-0M-L6i"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="afT-9j-reg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3OF-Gg-XTo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="afT-9j-reg" secondAttribute="trailing" id="ffB-Sb-97R"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="afT-9j-reg" secondAttribute="bottom" id="iFt-hj-0Vo"/>
-                            <constraint firstItem="afT-9j-reg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rgc-hU-092"/>
+                            <constraint firstItem="tG4-Oq-bjO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="A5L-0C-kBP"/>
+                            <constraint firstItem="tG4-Oq-bjO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Neb-k4-ksa"/>
+                            <constraint firstAttribute="trailing" secondItem="tG4-Oq-bjO" secondAttribute="trailing" id="WpM-Qj-YzF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tG4-Oq-bjO" secondAttribute="bottom" id="ixr-ad-A9I"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="photoView" destination="afT-9j-reg" id="lRm-Ye-MQ7"/>
+                        <outlet property="collectionView" destination="tG4-Oq-bjO" id="TVI-Ha-Mc5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="86.806596701649184"/>
         </scene>
     </scenes>
 </document>

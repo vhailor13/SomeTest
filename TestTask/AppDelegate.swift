@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }.onSuccess { _ in
                     userDefaults.setBool(true, forKey: isPhotosImporterdKey)
                     userDefaults.synchronize()
+                    
+                    NSNotificationCenter.defaultCenter().postNotificationName(contentUpdatedNotificationName, object: .None)
             }
         }
     }
