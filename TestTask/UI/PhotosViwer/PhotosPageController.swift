@@ -20,6 +20,9 @@ class PhotosPageController: UIPageViewController, UIPageViewControllerDataSource
                 viewerControllers.append(viewerCtrl)
             }
         }
+        
+        viewerControllers.append(PhotoViewerController())
+        
         let startPage = viewerControllers[selectedIndex]
         startPage.loadContent()
         self.setViewControllers([startPage], direction: .Forward, animated: false, completion: .None)
@@ -56,7 +59,7 @@ class PhotosPageController: UIPageViewController, UIPageViewControllerDataSource
     
     func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool,
                             previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-
+        
         // Not visible
         (previousViewControllers as? [PhotoViewerController])?.forEach { ctrl in
             ctrl.thumbContent()
@@ -64,6 +67,13 @@ class PhotosPageController: UIPageViewController, UIPageViewControllerDataSource
         
         // Current
         if let ctrl = pageViewController.viewControllers?.first as? PhotoViewerController {
+            if let index = viewerControllers.indexOf(ctrl) {
+                if index == viewerControllers.count - 1 {
+                    self.dismissViewControllerAnimated(true, completion: .None)
+                    return
+                }
+            }
+            
             ctrl.loadContent()
         }
         
