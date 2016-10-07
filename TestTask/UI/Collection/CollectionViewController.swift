@@ -2,11 +2,12 @@
 import UIKit
 import BrightFutures
 
-class CollectionViewController: UIViewController, UICollectionViewDataSource {
+class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView?
     
     var photos = [Photo]()
+    var selectedIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let ctrl = segue.destinationViewController as? PhotosPageController {
+            ctrl.selectedIndex = selectedIndex
+            ctrl.photos = photos
+        }
+    }
     
     // MARK: - Collection
     
@@ -44,6 +51,12 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource {
         cell.imageView?.image = photos[indexPath.row].thumbImage
         
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        selectedIndex = 0
+        
+        self.performSegueWithIdentifier("photos_page_segue", sender: .None)
     }
 }
 
