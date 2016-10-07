@@ -1,5 +1,5 @@
 
-class PhotoViewerController: UIViewController {
+class PhotoViewerController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var imageView: UIImageView?
     
     var photo: Photo?
@@ -28,4 +28,9 @@ class PhotoViewerController: UIViewController {
         self.imageView?.image = photo.thumbImage
     }
     
+    // MARK: - ScrollView
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return  imageView
+    }
 }

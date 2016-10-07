@@ -54,7 +54,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        selectedIndex = 0
+        selectedIndex = indexPath.row
         
         self.performSegueWithIdentifier("photos_page_segue", sender: .None)
     }

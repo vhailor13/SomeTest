@@ -20,10 +20,9 @@ class PhotosPageController: UIPageViewController, UIPageViewControllerDataSource
                 viewerControllers.append(viewerCtrl)
             }
         }
-        if let startPage = viewerControllers.first {
-            startPage.loadContent()
-            self.setViewControllers([startPage], direction: .Forward, animated: false, completion: .None)
-        }
+        let startPage = viewerControllers[selectedIndex]
+        startPage.loadContent()
+        self.setViewControllers([startPage], direction: .Forward, animated: false, completion: .None)
     }
     
     // MARK: - Page view controller

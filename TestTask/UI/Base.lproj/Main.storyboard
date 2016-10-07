@@ -99,7 +99,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZA-oC-MNf">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZA-oC-MNf">
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z0M-3a-2PQ"/>
                                 </subviews>
@@ -111,6 +111,9 @@
                                     <constraint firstItem="Z0M-3a-2PQ" firstAttribute="leading" secondItem="pZA-oC-MNf" secondAttribute="leading" id="kW3-lj-Uat"/>
                                     <constraint firstAttribute="trailing" secondItem="Z0M-3a-2PQ" secondAttribute="trailing" id="w6V-Xr-WKt"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="Qqp-fb-VAQ" id="k0j-Od-6NG"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
